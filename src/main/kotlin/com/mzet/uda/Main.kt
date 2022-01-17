@@ -13,7 +13,7 @@ fun main() {
         val args = scanner.nextLine()
             ?.trim()
             ?.lowercase()
-            ?.split(Regex("\\W+"))
+            ?.split(Regex("\\s+"))
             ?: emptyList()
 
         if (args.isEmpty() || args[0].isBlank()) {
@@ -26,9 +26,35 @@ fun main() {
                 println(ON_EXIT)
             }
             DICTIONARY -> {
-                if (args.size < 2) println(INCORRECT_INPUT)
-                else {
-                    val wordInfo = getWordFromDict(args[1]).list[0]
+                var definitionIndex: Int? = null
+                var wordInfo: Wordlist.WordInfo? = null
+
+                if (args.size < 2) {
+                    println(INCORRECT_INPUT)
+                    continue
+                }
+                if (args.size >= 3) {
+                    try {
+                        definitionIndex = args[2].toInt() - 1
+                    } catch (e: NumberFormatException) {
+                        println(INCORRECT_INPUT)
+                        continue
+                    }
+                }
+
+                val wordList = getWordFromDict(args[1]).list
+
+                if (definitionIndex == null) {
+                    if (wordList.size > 1) {
+                        println("Found ${wordList.size} definitions")
+                    } else {
+                        wordInfo = wordList[0]
+                    }
+                } else {
+                    wordInfo = wordList.getOrElse(definitionIndex) { wordList.first() }
+                }
+
+                wordInfo?.let {
                     println("${wordInfo.definition}\n")
                     println("Example: ${wordInfo.example}\n")
                     println("Author: ${wordInfo.author}")
