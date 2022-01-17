@@ -1,3 +1,5 @@
+package com.mzet.uda
+
 // Args
 const val DICTIONARY = "dict"
 const val EXIT = "exit"

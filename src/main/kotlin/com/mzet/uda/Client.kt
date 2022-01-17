@@ -1,3 +1,5 @@
+package com.mzet.uda
+
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request

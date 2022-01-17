@@ -1,18 +1,22 @@
+package com.mzet.uda
+
+import java.util.*
+
 fun main() {
+    val scanner = Scanner(System.`in`);
     var command: String? = null
     println(WELCOME)
     printHelp()
 
     while (command != EXIT) {
-        val args = readLine()
+        if (!scanner.hasNext()) continue
+        val args = scanner.nextLine()
             ?.trim()
-            ?.replace(Regex("""\s+"""), " ")
             ?.lowercase()
-            ?.split(" ")
+            ?.split(Regex("\\W+"))
             ?: emptyList()
 
-        if (args.isEmpty()) {
-            println(INCORRECT_INPUT)
+        if (args.isEmpty() || args[0].isBlank()) {
             continue
         }
 
