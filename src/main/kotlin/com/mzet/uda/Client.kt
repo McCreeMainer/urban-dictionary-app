@@ -6,13 +6,14 @@ import okhttp3.Request
 
 val client = OkHttpClient()
 val gson = Gson()
+var rapidapiKey: String? = null
 
 fun getWordFromDict(word: String): Wordlist {
     val request = Request.Builder()
         .get()
         .url("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=$word")
         .addHeader("x-rapidapi-host", "mashape-community-urban-dictionary.p.rapidapi.com")
-        .addHeader("x-rapidapi-key", "afd8a1edfemsh42e00d1360b74a0p1f7cc4jsnfddab1c1909f")
+        .addHeader("x-rapidapi-key", rapidapiKey ?: "")
         .build()
 
     val response = client.newCall(request).execute().body?.string()
