@@ -44,6 +44,11 @@ fun main() {
 
                 val wordList = getWordFromDict(args[1]).list
 
+                if (wordList.isEmpty()) {
+                    println("No definitions found")
+                    continue
+                }
+
                 if (definitionIndex == null) {
                     if (wordList.size > 1) {
                         println("Found ${wordList.size} definitions")
