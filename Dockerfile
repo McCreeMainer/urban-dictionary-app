@@ -4,7 +4,7 @@ WORKDIR /project
 COPY build.gradle.kts ./
 COPY settings.gradle.kts ./
 COPY gradle.properties ./
-COPY src ./srcdict
+COPY src ./src
 RUN gradle shadowJar
 
 # Start
