@@ -21,9 +21,9 @@ fun getWordFromDict(word: String): Wordlist {
 
 data class Wordlist(val list: List<WordInfo>) {
     data class WordInfo(
-        val definition: String,
-        val permalink: String,
-        val author: String,
-        val example: String,
+        var word: String = "",
+        var definition: String = "",
+        var example: String = "",
+        var author: String = ""
     )
 }

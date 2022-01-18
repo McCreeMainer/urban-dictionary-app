@@ -65,6 +65,14 @@ fun main() {
                     println("Author: ${wordInfo.author}")
                 }
             }
+            RANDOM -> {
+                getRandomWordFromDict()?.let { wordInfo ->
+                    println("${wordInfo.word}\n")
+                    println("${wordInfo.definition}\n")
+                    println("Example: ${wordInfo.example}\n")
+                    println("Author: ${wordInfo.author}")
+                }
+            }
             else -> {
                 println(INCORRECT_INPUT)
             }
