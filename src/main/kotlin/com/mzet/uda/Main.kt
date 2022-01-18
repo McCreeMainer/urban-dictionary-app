@@ -25,6 +25,14 @@ fun main() {
                 command = EXIT
                 println(ON_EXIT)
             }
+            KEY -> {
+                if (args.size < 2) {
+                    println(NO_KEY)
+                    continue
+                }
+                rapidapiKey = args[1]
+                println(ON_KEY_SET)
+            }
             DICTIONARY -> {
                 var definitionIndex: Int? = null
                 var wordInfo: Wordlist.WordInfo? = null
@@ -40,6 +48,10 @@ fun main() {
                         println(INCORRECT_INPUT)
                         continue
                     }
+                }
+                if (rapidapiKey == null) {
+                    println(NO_KEY)
+                    continue
                 }
 
                 val wordList = getWordFromDict(args[1]).list
