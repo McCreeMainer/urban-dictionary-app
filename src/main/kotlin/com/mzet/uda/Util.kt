@@ -2,12 +2,14 @@ package com.mzet.uda
 
 // Args
 const val DICTIONARY = "dict"
+const val RANDOM = "random"
 const val EXIT = "exit"
 
 // Msg
 const val WELCOME = "Type one of the following command:"
 const val INCORRECT_INPUT = "Incorrect input"
 const val ON_EXIT = "Shut down service"
+const val CONNECTION_LOST = "Something went wrong"
 
 val commandHelp = mapOf(
     DICTIONARY to "Get specified word from dictionary",
