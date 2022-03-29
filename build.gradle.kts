@@ -14,6 +14,7 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("it.skrape:skrapeit:1.2.0")
+    testImplementation(kotlin("test"))
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -29,4 +30,9 @@ tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
             "Main-Class" to "com.mzet.uda.MainKt"
         ))
     }
+}
+
+tasks.test {
+    ignoreFailures = true
+    useJUnitPlatform()
 }
