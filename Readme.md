@@ -1,5 +1,7 @@
 # Urban Dictionary App
 
+[![Build Status](https://github.com/McCreeMainer/urban-dictionary-app/actions/workflows/udapp.yml/badge.svg?branch=main)](https://github.com/McCreeMainer/urban-dictionary-app/actions?query=branch%3Amain)
+
 App that provides [Urban Dictionary](https://www.urbandictionary.com/) resources.
 
 ## Setup
