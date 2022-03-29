@@ -39,9 +39,7 @@ fun getRandomWordFromDict(): Wordlist.WordInfo? {
                         withClass = "contributor"
                         findFirst {
                             a {
-                                findFirst {
-                                    text
-                                }
+                                findFirst { text }
                             }
                         }
                     }
